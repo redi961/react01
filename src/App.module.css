@@ -1,0 +1,11 @@
+.div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+.p1 {
+    background-color: purple;
+    color: white;
+  }

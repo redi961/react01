@@ -1,0 +1,19 @@
+p {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.divHello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.spanHello {
+  color: blue;
+}
+.numHello {
+  color: red;
+}

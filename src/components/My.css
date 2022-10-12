@@ -1,0 +1,33 @@
+.div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+p {
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.mvLik {
+  display: inline-flex;
+  justify-content: right;
+  width: 100px;
+  font-weight: bold;
+  align-items: center;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.MVLiv {
+  display: inline-flex;
+  align-items: center;
+  
+  padding: 5px;
+}
