@@ -1,0 +1,34 @@
+.disP {
+  background: linear-gradient(to right, rgb(182, 182, 240), white);
+  border: solid;
+  border-width: 1px;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px;
+}
+h1 {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  border-bottom: dotted;
+  border-width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.lists.keys {
+  font-weight: bold;
+}

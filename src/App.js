@@ -1,11 +1,15 @@
-import style from './App.module.css';
-import Mycom from './components/Mycom';
-import MyHello from './components/MyHello';
+//import logo from './logo.svg';
+import './App.css';
+import mv from './jsondata/mvInfo.json'
+import MvInfo from './project/Mvinfo';
+import MyObject from './MyObject';
 
-function App() {
+
+function App() { 
+  const mvinfo = mv.movieInfoResult.movieInfo;
   return (
     <>
-    <Mycom/>
+      <MyObject/>
     </>
   );
 }
