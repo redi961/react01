@@ -1,11 +1,15 @@
 import mv from '../jsondata/mvInfo.json'
-// import './kvstyle.css';
+import MvTimer from './mvTimer';
+import './kvstyle.css';
+
+//useState Hook
+import {useState, useEffect} from 'react';
 
 function MvInfo(probs) {
 
     // Json 데이터 가져오기
     const mvinfo = mv.movieInfoResult.movieInfo;
-    console.log(mvinfo);
+    // console.log(mvinfo);
   
     // 화면에 출력할 정보를 오브젝트 생성
     let myinfo ={};
@@ -51,24 +55,82 @@ function MvInfo(probs) {
           break;  
       }
     }
-    console.log(myinfo)
+    // console.log(myinfo)
   
     //화면에 출력할 내용을 JSX로 만들기
     let lis = [] ;
 
     for (let [k, v] of Object.entries(myinfo)) {
-      lis.push(<li className = "lists" key = {myinfo.movieCd + k}> <span>{k} : </span>{v}</li>);
+      lis.push(<li className = "lists" key = {myinfo.movieCd + k}> 
+      <span className = "mvTitle"> {k} : &nbsp; </span> 
+      <span className="mvIndex"> {v} </span></li>);
     }
+    /* 변수제어 항목*/
+    //count 제어 
+    let cntup = 0;
+    let cntdown = 0;
+
+    
+    //state변수
+    // let [수정할변수+st, set수정한별수] -> 일반적으로 사용
+    let [cntupSt,setcntUpst] = useState(0);
+    let [cntdownSt,setcntDownst] = useState(0);
+    let [flag, setflagSt] = useState(true);
+
+    const handleUp = () => {
+      // console.log('local 변수 : ' + ++cntup);
+      //State의 증감은 반드시 상기의 선언한 함수를 통하여 진행하여야함
+      setcntUpst(++cntupSt);
+      console.log('state 변수 : ', cntupSt);
+    };
+    
+    const handleDown = () => {
+      // console.log(++cntdown);
+      setcntDownst(++cntdownSt);
+      console.log('state 변수 : ', cntdownSt);
+    };
+
+    const ClickTimer = () => {
+      setflagSt(!flag);
+    //setFlag2(flag2 === 'none'? 'inline-flex' : 'none'); 
+    }
+    /* 변수제어 항목 */
+
+    // UseEffect Hook : 랜더링시 매번 발생
+    useEffect(() => {
+      console.log('useEffect 랜더링 발생시 계속 수행');        
+    });
+    
+    // UseEffect Hook : 랜더링시 생성시 한번 발생 ()=>{}, [발생조건]
+    useEffect(() => {
+      console.log('useEffect 랜더링시 생성시 한번 발생');
+    }, []);
+
+    // UseEffect Hook : 관련state변수가 변경될때 실행
+    useEffect(() => {
+      console.log('useEffect 관련 State 실행으로 발생');      
+    }, [cntupSt]);
 
   return (
     <>
     <h1>영화상세</h1>
+    <div className = "mvField" >
+    
     <ul>
      <div className = "disP">
       {lis}
       </div>
     </ul>
     
+    <div className ='handleField'>
+        <div onClick = {handleUp}>💗 </div><div>{cntupSt}</div>
+        <div onClick = {handleDown}>🖤 </div><div>{cntdownSt}</div>
+        {/*Flag값이 True인경우 표기되며 False의 경우 표기되지 않음 */}
+        <div onClick = {ClickTimer} >🕑</div>
+        <span className = "mvTimer"> 시간 : {flag && <MvTimer/>}</span>
+        {/*span className='mvTimer' style={{'display': fleg2}}><MvTimer/></div>*/}
+    </div>
+    </div>
     </>
   );
 } export default MvInfo

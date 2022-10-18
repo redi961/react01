@@ -9,7 +9,7 @@ function App() {
   const mvinfo = mv.movieInfoResult.movieInfo;
   return (
     <>
-      <MyObject/>
+      <MvInfo/>
     </>
   );
 }
